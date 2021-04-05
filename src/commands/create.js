@@ -7,7 +7,7 @@ const sleds = new Map(require("../sleds"));
 module.exports = {
   name: "create",
   fn: ({ message, args }) => {
-    const name = args.join(" ");
+    const name = args.join("-");
     if(!sleds.has(name)) return message.reply(`${name}というスレッドは既に存在しています。`);
     sleds.set(name, { user: message.author.id, date: Date.now() });
     message.author.send(
