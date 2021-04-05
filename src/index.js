@@ -18,7 +18,7 @@ client.on("message", async (message) => {
   const [cmd, ...args] = message.content.slice(prefix.length).split(" ");
   if(!client.commands.has(cmd)) return;
   const handler = await client.commands.get(cmd);
-  handler({ message, args });
+  await handler({ message, args, client });
 });
 
 client.login(token);
